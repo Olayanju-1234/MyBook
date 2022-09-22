@@ -1,0 +1,20 @@
+<div class="col s12 m4">
+    <div class="card center-align">
+            <div class="card-content"><span class="card-title">
+                {{users.displayName}}
+            </span>
+            <img src="{{users.image}}" class="circle responsive-img img-small" alt="profile picture">
+            </div>
+            <div class="card-action">
+                <a href="/users/{{users.firstName}}" class="profilelink">Posts from {{users.lastName}} </a>
+            </div>
+            {{!-- Send friend request --}}
+            <form action="/users/{{user._id}}/send-friend-request/{{users._id}}" method="POST" class="form-inline">
+            <input type="hidden" name="friendId" value="{{user._id}}">
+            <button type="submit" class="btn add accept">Send Friend Request</button>
+        </form>
+
+
+
+        </div>
+</div>

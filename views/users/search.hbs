@@ -1,0 +1,25 @@
+<h2>Search Friends</h2>
+<form action="search" method="post">
+<input type="text" name="searchfriend" placeholder="Username">
+<input type="submit" name="search">
+</form>
+<hr>
+
+{{#if result}}
+{{#each result}}
+<div class="usercard col-lg-3">
+    
+<img class="usercard-image" src="{{image}}">
+<h5 class="usercard-name">{{displayName}}</h5>
+<p class="usercard-username">@({{firstName}})</p>
+{{!-- View profile button --}}
+<a href="/users/{{_id}}"><button class="btn view-profile">View Profile</button></a>
+
+</div>
+
+{{/each}}
+{{else}}
+<h2 class="usercard-name">No user found</h2>
+{{/if}}
+
+

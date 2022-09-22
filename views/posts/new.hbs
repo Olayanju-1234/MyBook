@@ -1,0 +1,20 @@
+<h3>Welcome {{post.user.displayName}}</h3>
+<br>
+<h5>Create new post</h5>
+<div class="row">
+    <form action="/posts/{{post.user._id}}/new" method="post" class="col s12">
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Publish post</h5>
+                <textarea id="content" name="content" class="materialize-textarea"></textarea>
+              
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Create" class="btn waves-effect waves-light"></input>
+            <a href="/homepage" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

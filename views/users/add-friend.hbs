@@ -1,0 +1,40 @@
+<h2>Accept Friend Requests</h2>
+
+<hr>
+{{#if user}}
+{{#if user.friendRequests}}
+{{#each user.friendRequests}}
+<div class="card" style="width: 20rem;">
+  <br>
+  <img src="{{this.image}}" class="usercard-image" alt="...">
+  <div class="card-body">
+    <h5 class="usercard-name">{{this.displayName}}</h5>
+      <form action="/users/{{this.sentRequests}}/add-friend/{{this._id}}" method="POST" class="form-inline">
+            <input type="hidden" name="friendId" value="{{user._id}}">
+            <button type="submit" class="btn add accept friend-add fa-small">Add Friend</button>
+        </form>
+      <form action="/users/{{this.sentRequests}}/add-friend/{{this._id}}/decline" method="POST">
+            <input type="hidden" name="friendId"  class="form-inline" value="{{user._id}}">
+            <button type="submit" class="btn add reject friend-add fa-small">Reject Friend</button>
+        </form>
+  </div>
+</div>
+{{/each}}
+{{else}}
+<h2>No friend requests</h2>
+{{/if}}
+{{else}}
+{{!-- Redirect to login page --}}
+<p>Login <a href="auth/login">Login</a></p>
+{{/if}}
+
+
+
+
+
+
+
+
+
+
+

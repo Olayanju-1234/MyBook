@@ -1,0 +1,20 @@
+<h3>Edit Post</h3>
+<div class="row">
+    <form action="/posts/{{post._id}}/edit" method="POST" class="col s12">
+    <input type="hidden" name="_method" value="PUT">
+        
+
+        <div class="row">
+            <div class="input-field">
+                <h5>Update story</h5>
+                <textarea id="content" name="content" class="materialize-textarea">{{post.content}}</textarea>
+              
+            </div>
+        </div>
+
+        <div class="row">
+            <input type="submit" value="Update" class="btn waves-effect waves-light">
+            <a href="/homepage" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

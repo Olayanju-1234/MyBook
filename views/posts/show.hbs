@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col s12 m8">
+        <div class="card story">
+            <div class="card-content">
+                <span class="card-title">{{formatDate post.createdAt 'MMMM Do YYYY, h:mm a'}}</span>
+                {{{post.content}}}
+            </div>
+
+        
+            <form action="/posts/{{post._id}}/like" method="post" class="col s12">
+                    <input type="hidden" name="_method" value="PUT">
+                    <button type="submit"><i class="fa-solid fa-thumbs-up"></i></button> 
+            </form>
+
+            <b><i class="fa-solid fa-user"></i>: <a href="/users/{{post.user._id}}">{{post.user.displayName}}</a></b>
+            </div>
+
+            <div class="row">
+                <form action="/posts/{{post._id}}/comments/new" method="post" class="col s12">
+        
+                <div class="input-field">
+                    <h5>Publish comment</h5>
+                    <textarea id="comment" name="comment" class="materialize-textarea"></textarea>     
+        
+                    <button type="submit" class="btn waves-effect waves-light">Publish <i class="fa-solid fa-comment"></i></button>
+                </div>
+                </form>
+
+                <div class="col s12">
+                    <h5><i class="fa-solid fa-comments"></i> Comments</h5>
+                    {{#each comment}}
+                        <div class="card">
+                            <div class="card-content">
+                                <span class="card-title">{{formatDate createdAt 'MMMM Do YYYY, h:mm a'}}</span>
+                                {{{comment}}}
+                            </div>
+                            <p>Posted by: {{user}}</p>
+                        </div>
+                        
+                    {{/each}}
+                    
+            </div>
+    
+            </div>
+    
+        </div>
+    </div>
+</div>
+
+
+    
+
+            {{!-- <input type="submit" class="btn waves-effect waves-light"> Comment </input>
+            <a href="/homepage" class="btn orange">Cancel</a>
+        </div>
+    </form> --}}
+
+    <div class="col s12 m4">
+        <div class="card center-align">
+            <div class="card-content"><span class="card-title">
+                {{post.user.displayName}}
+            </span>
+            <img src="{{post.user.image}}" class="circle responsive-img img-small" alt="profile picture">
+            </div>
+            <div class="card-action">
+                <a href="/users/{{post.user._id}}" class="profilelink"> Visit {{post.user.firstName}}'s Profile </a>
+            </div>
+             <td>
+                        <form action="/posts/{{post._id}}/delete" method="post" id="delete-form">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button class="btn red" type="submit">
+                                <i class="fas fa-trash fa-small"></i>
+                            </button>
+                        </form>
+
+
+
+                    </td>
+        </div>
+    </div>
+</div>
