@@ -6,7 +6,7 @@
             <img src="{{users.image}}" class="circle responsive-img img-small" alt="profile picture">
             </div>
             <div class="card-action">
-                <a href="/users/{{users.firstName}}" class="profilelink">Posts from {{users.lastName}} </a>
+                <a href="/users/{{users._id}}" class="profilelink">Posts from {{users.lastName}} </a>
             </div>
             {{!-- Send friend request --}}
             <form action="/users/{{user._id}}/send-friend-request/{{users._id}}" method="POST" class="form-inline">
